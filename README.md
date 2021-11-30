@@ -18,7 +18,6 @@ If you stuck with Kotlin-specific questions or anything related to this template
 
 
 
-![][file:cover]
 
 ## Workflow
 **Advent of Code Kotlin Template** is a particular type of GitHub repository that lets you speed up the setup phase and start writing your AoC solutions immediately.
@@ -121,7 +120,6 @@ fun main() {
 
 [actions-user]: https://github.com/actions-user
 [kiss]: https://en.wikipedia.org/wiki/KISS_principle
-[file:cover]: .github/readme/cover.png
 [file:utils]: src/Utils.kt
 
 [aoc]: https://adventofcode.com
