@@ -14,4 +14,21 @@ fun main() {
     val input = readInput("Day01")
     println(part1(input))
     println(part2(input))
+
+    val numberList = input.map { it.toInt() }
+    var num = numberList.first()
+    var increased = 0
+
+    for (next in numberList) {
+
+        if (next > num) {
+            increased++
+            num = next
+
+        } else {
+            num = next
+        }
+    }
+
+    println(increased)
 }
