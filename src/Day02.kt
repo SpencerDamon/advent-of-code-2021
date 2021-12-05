@@ -44,6 +44,10 @@ fun main() {
     // Now copy in  the valid data into Day02.txt, and run.  Should get 1459206
     }
 
+    /*
+    part2 version 1
+
+
     fun part2(input: List<String>): Int {
         //Solution by Kotlin by JetBrains YouTube Advent of Code 2021 in Kotlin, Day 2: Dive!
         // From Creating Part2 Check below
@@ -65,6 +69,44 @@ fun main() {
                 // Add Curly braces. Assign depth to amount * aim
                 // If we run from here, we get an error, because we have not increased depth, but reassigned it.
                 // Set depth to increase by amount * aim. GOTO // println(part2(input))
+                "forward" -> {
+                    horizontalPosition += amount
+                    depth += amount * aim
+                }
+            }
+        }
+
+        return depth * horizontalPosition // Should be 1320534480
+    }
+    */
+
+    // From fun part2()
+    // Create a small data class called Operation because it is a list of operations.
+    // Which will contain only two fields, the first is direction which will be a String type.
+    // And the second will be named amount, and will be an Int type. GOTO val operations.
+
+    data class Operation(val direction: String, val amount: Int)
+    // Part 2 refactored version 2
+    fun part2(input: List<String>): Int {
+        //Refactored solution by Kotlin by JetBrains YouTube Advent of Code 2021 in Kotlin, Day 2: Dive!
+        // It is preferred to use an object rather than a list to work with in this scenario.
+        // Above fun part2 create a small data class called Operation. GOTO Above fun part2.
+        var aim = 0
+        var depth = 0
+        var horizontalPosition = 0
+        // Now we can call map on the operations variable again, to convert the list of strings to the operations class.
+        // Provide the constructor the first element of the list unchanged as a String.
+        // Provide the constructor the second element of the list unchanged as a String type.
+        // Convert the second element to an Int type.
+        val operations = input.map { it.split(' ') }.map { Operation(it[0], it[1].toInt())}
+        // Delelt the obsolete variable amount = amountString.toInt()
+        // Now in the for loop, rename the obsolete variable amountString, to amount.
+        for ((direction, amount) in operations) {
+            //val amount = amountString.toInt()
+
+            when(direction) {
+                "up" -> aim -= amount
+                "down" -> aim += amount
                 "forward" -> {
                     horizontalPosition += amount
                     depth += amount * aim
